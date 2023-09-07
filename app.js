@@ -13,6 +13,7 @@ app.use(express.static("public"));
 
 mongoose.connect("mongodb+srv://ayushman45:Mongo45@cluster0.fsl6von.mongodb.net/?retryWrites=true&w=majority", {useNewUrlParser: true});
 
+
 const itemsSchema={
   name:String
 }
@@ -180,6 +181,6 @@ app.post("/signup",function(req,res){
     console.log(err);
   });
 })
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
