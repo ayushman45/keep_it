@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KEEP IT</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+    <main>
+
+        <div class="box" id="heading">
+            <h1> To-Do-List </h1>
+          </div>
+          <div class="box">
+        
+        
+            <%  usr.items.forEach(function(item){ %>
+          
+              <form action="/delete/<%=usr._id%>/<%=item._id%>" method="post">
+                <div class="item">
+                  <button type="submit" name="checkbox" value="<%=item._id%>"
+                  >
+                  <p><%=item.name%></p>
+                </div>
+              </form>
+            <%  }) %>
+          
+          
+                <form class="item" action="/<%=usr._id%>/add" method="post">
+                    <label for="newItem"></label>
+                    <input type="text" id="newItem" name="newItem" placeholder="New Item" autocomplete="off">
+                    <button type="submit" name="list" value="ADD">ADD</button>
+                </form>
+            </div>
+            
+  
+<%- include('partials/footer') %>
